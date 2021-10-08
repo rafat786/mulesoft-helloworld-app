@@ -49,15 +49,20 @@
                 <artifactId>mule-maven-plugin</artifactId>
                 <version>2.1.1</version>
                 <configuration>
-                    <deploymentType>${mule.deploymentType}</deploymentType>
-                     <!-- muleVersion is the runtime version as it appears on the CloudHub interface -->
-                    <muleVersion>3.8.5</muleVersion>
-                    <username>${mule.username}</username>
-                    <password>${mule.password}</password>
-                    <redeploy>${mule.redeploy}</redeploy>
-                    <environment>${mule.environment}</environment>
-					<applicationName>${mule.application.name}</applicationName>
-					<application>${mule.application}</application>
+                    <cloudHubDeployment>
+			    <uri>https://anypoint.mulesoft.com</uri>
+			    <muleVersion>${mule.version}</muleVersion>
+                            <username>${anypoint.username}</username>
+                            <password>${anypoint.password}</password>
+                            
+                            <environment>${env}</environment>
+			    <applicationName>${appname}</applicationName>
+			    <businessGroup>${business}</businessGroup>
+			    <workerType>${vCore}</workerType>
+			    <workers>${workers}</workers>
+			    <objectStoreV2> true</objectStoreV2>
+		    </cloudHubSeployment>
+		<classifier>mule-application</classifier>
                 </configuration>
                 <executions>
                     <execution>
